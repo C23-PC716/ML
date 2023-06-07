@@ -25,6 +25,20 @@ DISEASE_DICT = {
 
 app = Flask(__name__)
 
+def get_prediction(input_file) :
+    img = Image.open(input_file)
+    img = img.convert('RGB')
+    img = img.resize((160, 160))
+
+    x = tf.keras.utils.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+
+    images = np.vstack([x])
+    classes = model.predict(images, batch_size=32)
+    prediction_class_index = np.argmax(classes)
+
+    return prediction_class_index
+
 @app.route("/index", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
@@ -33,17 +47,7 @@ def index():
             return render_template('index.html', response="No file selected.")
 
         try:
-            img = Image.open(file)
-            img = img.convert('RGB')
-            img = img.resize((160, 160))
-            
-            x = tf.keras.utils.img_to_array(img)
-            x = np.expand_dims(x, axis=0)
-
-            images = np.vstack([x])
-            classes = model.predict(images, batch_size=32)
-            prediction = np.argmax(classes)
-            
+            prediction = get_prediction(file)
             return render_template('index.html', 
                                    response="success: the image was predicted to be classified on the " + DISEASE_DICT.get(prediction))
         
@@ -71,16 +75,7 @@ def predict_disease():
             content_type="application/json")
 
     try:
-        img = Image.open(file)
-        img = img.convert('RGB')
-        img = img.resize((160, 160))
-
-        x = tf.keras.utils.img_to_array(img)
-        x = np.expand_dims(x, axis=0)
-
-        images = np.vstack([x])
-        classes = model.predict(images, batch_size=32)
-        prediction_key = np.argmax(classes)
+        prediction_key = get_prediction(file)
         prediction = DISEASE_DICT.get(prediction_key)
 
         return Response(

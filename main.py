@@ -10,7 +10,7 @@ from PIL import Image
 from flask import Flask, request, Response, render_template
 from flask_api import status
 
-model_tf = keras.models.load_model("Skin_Disease_2.h5")
+model_tf = keras.models.load_model("dermacare.h5")
 # model_tflite = keras.models.load_model("bla.tflite")
 
 DISEASE_DICT = {

@@ -27,35 +27,35 @@ DISEASE_DICT = {
 DISEASE_DICT_FINAL = {
     0: {
         "nama": "Actinic Keratosis",
-        "deskripsi": "Deskripsi 0",
+        "deskripsi": "Actinic keratosis adalah kondisi prakanker yang mempengaruhi kulit. Ini disebabkan oleh kerusakan sinar matahari pada kulit selama periode waktu yang panjang.",
     },
     1: {
         "nama" : "Basal Cell Carcinoma",
-        "deskripsi" : "Deskripsi 1",
+        "deskripsi" : "Salah satu jenis kanker kulit yang paling umum. Kanker ini terjadi ketika sel-sel basal, yang bertanggung jawab untuk pembentukan kulit baru, mengalami mutasi dan berkembang secara tidak terkendali.",
     },
     2: {
         "nama" : "Benign keratosis",
-        "deskripsi" : "Deskripsi 2",
+        "deskripsi" : "Kondisi kulit yang umum terjadi pada orang dewasa yang lebih tua, ini bukanlah kanker kulit, tetapi merupakan pertumbuhan kulit yang tidak berbahaya.",
     },
     3: {
         "nama" : "Dermatofibroma",
-        "deskripsi" : "Deskripsi 3",
+        "deskripsi" : "Lesi kulit yang umum, non-kanker, dan umumnya tidak berbahaya. Lesi ini terbentuk ketika sel-sel fibrosit dan sel-sel histiosit mengumpul di dalam dermis, lapisan tengah kulit.",
     },
     4: {
         "nama" : "Melanocytic Nevus",
-        "deskripsi" : "Deskripsi 4",
+        "deskripsi" : "Dikenal sebagai tahi lalat atau nevus pigmentosus, adalah lesi kulit yang umum dan biasanya non-kanker. Ini terbentuk ketika sel-sel melanosit, yang bertanggung jawab untuk produksi pigmen melanin, mengumpul di kulit.",
     },
     5: {
         "nama" : "Melanoma",
-        "deskripsi" : "Deskripsi 5",
+        "deskripsi" : "Salah satu jenis kanker kulit yang berasal dari sel-sel melanosit, yaitu sel-sel yang menghasilkan pigmen melanin yang memberikan warna pada kulit.",
     },
     6: {
         "nama" : "Squamous Cell Carcinoma",
-        "deskripsi" : "Deskripsi 6",
+        "deskripsi" : "Salah satu jenis kanker kulit yang berasal dari sel skuamosa, yaitu sel-sel yang membentuk lapisan tengah dan luar kulit.",
     },
     7: {
         "nama" : "Vascular Lesion",
-        "deskripsi" : "Deskripsi 7",
+        "deskripsi" : "Adalah salah satu kelainan atau gangguan pada pembuluh darah atau pembuluh limfe di dalam kulit atau jaringan lainnya.",
     },
 }
 

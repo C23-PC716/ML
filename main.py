@@ -11,7 +11,7 @@ from flask import Flask, request, Response, render_template
 from flask_api import status
 
 model_tf = keras.models.load_model("dermacare.h5")
-# model_tflite = keras.models.load_model("bla.tflite")
+# model_tflite = keras.models.load_model("dermacare_tflite.tflite")
 
 DISEASE_DICT = {
     0: "Actinic Keratosis",
@@ -77,6 +77,7 @@ def get_prediction(model, input_file) :
 
 @app.route("/index", methods=["GET", "POST"])
 def index():
+    """Endpoint for showing a simple webpage to take an image input and predict the disease"""
     if request.method == "POST":
         file = request.files.get('file')
         if file is None or file.filename == "":
@@ -96,7 +97,7 @@ def index():
 
 @app.route("/predict", methods=["POST"])
 def predict_disease():
-    
+    """Endpoint for the prediction API that request an image and return a prediction info json response"""
     file = request.files["image"]
     
     if file is None or file.filename == "":
@@ -117,13 +118,8 @@ def predict_disease():
         # prediction = DISEASE_DICT.get(prediction_key)
         prediction = DISEASE_DICT_FINAL.get(prediction_key)
 
-        # return Response(
-        #     response= json.dumps({"prediction" : prediction}), 
-        #     status=status.HTTP_200_OK,
-        #     content_type="application/json")
-
         return Response(
-            response= json.dumps(prediction), #return dictionary {nama, deskripsi}
+            response= json.dumps(prediction),
             status=status.HTTP_200_OK,
             content_type="application/json")
         
